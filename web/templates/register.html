@@ -1,0 +1,31 @@
+{{template "base" .}}
+
+{{define "title"}}Главное{{end}}
+
+{{define "main"}}
+<section class="register">
+  <form action="/register/post" method="post" onsubmit="return submitForm(this);" class="registerForm col-11 col-sm-10 col-md-8 col-lg-6 col-xs-5 mx-auto">
+    <div class="mb-3">
+      <h2>Регестрация</h2>
+    </div>
+    <div id="registerErrors"></div>
+    <div class="mb-3">
+      <label for="username">Ник</label>
+      <input class="form-control" type="text" name="username" id="username">
+    </div>
+    <div class="mb-3">
+      <label for="password1">Пароль</label>
+      <input class="form-control" type="password" name="password1" id="password1">
+    </div>
+    <div class="mb-3">
+      <label for="password2">Подтвердить пароль</label>
+      <input class="form-control" type="password" name="password2" id="password2">
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-primary" type="submit">Создать</button>
+    </div>
+  </form>
+</section>
+
+<script src="/static/js/register.js"></script>
+{{end}}
