@@ -8,7 +8,13 @@
     <div class="mb-3">
       <h2>Регестрация</h2>
     </div>
-    <div id="registerErrors"></div>
+    {{if ne .Err ""}}
+      <div id="registerErrors" class="mb-3">
+        <span class="text-danger">{{.Err}}</span>
+      </div>
+    {{else}}
+      <div id="registerErrors"></div>
+    {{end}}
     <div class="mb-3">
       <label for="username">Ник</label>
       <input class="form-control" type="text" name="username" id="username">
