@@ -99,9 +99,8 @@ func (h *Handler) RegisterPost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	row := db.QueryRow(
-		"SELECT id FROM User WHERE name=$1 AND password=$2",
+		"SELECT id FROM User WHERE name=$1",
 		registerPostData.Username,
-		hashPassword,
 	)
 	
 	var userId sql.NullInt64
@@ -136,5 +135,5 @@ func (h *Handler) RegisterPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, "/auth/get", http.StatusSeeOther)
 }

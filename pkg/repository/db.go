@@ -21,13 +21,13 @@ func Conn() (*sql.DB, error) {
 	return db, nil
 }
 
-func HashFunc(str string) (string, error) {
+func HashFunc(str string) ([]byte, error) {
 	byteStr := []byte(str+salt)
 
 	hashedStr, err := bcrypt.GenerateFromPassword(byteStr, bcrypt.DefaultCost)
 	if err != nil {
-		return "", err
+		return []byte(""), err
 	}
 
-	return string(hashedStr), nil
+	return hashedStr, nil
 }

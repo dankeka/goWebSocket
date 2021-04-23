@@ -1,0 +1,31 @@
+{{template "base" .}}
+
+{{define "title"}}Авторизация{{end}}
+
+{{define "main"}}
+<section class="register">
+  <form action="/auth/post" method="post" class="authForm col-11 col-sm-10 col-md-8 col-lg-6 col-xs-5 mx-auto">
+    {{if ne .Err ""}}
+      <div id="authErr" class="mb-3">
+        <span class="text-danger">{{.Err}}</span>
+      </div>
+    {{else}}
+      <div id="authErr"></div>
+    {{end}}
+    <div class="mb-3">
+      <h2>Авторизазия</h2>
+    </div>
+    <div class="mb-3">
+      <label for="username">Ник</label>
+      <input class="form-control" type="text" name="username" id="username">
+    </div>
+    <div class="mb-3">
+      <label for="password">Пароль</label>
+      <input class="form-control" type="password" name="password" id="password">
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-primary" type="submit">Сохранить</button>
+    </div>
+  </form>
+</section>
+{{end}}

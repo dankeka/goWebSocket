@@ -20,6 +20,8 @@ func (h *Handler) InitRouters() *mux.Router {
 	r.HandleFunc("/", h.Index)
 	r.HandleFunc("/register/get", h.Register)
 	r.HandleFunc("/register/post", h.RegisterPost)
+	r.HandleFunc("/auth/get", h.AuthGet)
+	r.HandleFunc("/auth/post", h.AuthPost)
 
 	fileServer := http.FileServer(http.Dir("web/static"))
 	r.PathPrefix("/").Handler(http.StripPrefix("/static/", fileServer))
